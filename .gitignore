@@ -1,0 +1,37 @@
+# Environment
+.env*
+!.env.example
+
+# Packages
+node_modules
+bower_components
+
+# Npm
+npm-debug.log
+
+# Test
+api/coverage
+coverage
+
+# Log Files
+*.log
+
+# Dist (for documentation)
+dist
+
+# Windows files
+Thumbs.db
+
+# OSX files
+.DS_Store
+
+# Development Environments
+*.sublime-workspace
+*.todo
+
+# Vim swap files
+*.swp
+*.swo
+*.swn
+
+.idea/
