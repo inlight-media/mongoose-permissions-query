@@ -1,6 +1,6 @@
 # Mongoose Permissions Query
-Mongoose Permissions Query is a plugin that will install an adaptor to your Mongoose models. 
-The adaptor can shape GET queries to match your Mongoose permission options.
+Mongoose Permissions Query is a plugin that will install an query modifier to your Mongoose models. 
+The modifier can shape GET queries to match your Mongoose permission options.
 
 ## Todo
 - Contributing guidelines
