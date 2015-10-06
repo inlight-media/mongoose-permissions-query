@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/inlight-media/mongoose-permissions/issues"
   },
-  "pre-commit": "npm run eslint",
+  "post-commit": "npm run eslint",
   "dependencies": {
     "lodash": "^3.5.0",
     "mongoose": "~4.0.2"
