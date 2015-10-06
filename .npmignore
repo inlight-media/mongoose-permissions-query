@@ -1,0 +1,17 @@
+# OS
+.DS_Store
+.DS_Store?
+.Trashes
+.Spotlight-V100
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.directory
+._*
+*~
+
+# npm
+node_modules
+
+*.log
+*.gz

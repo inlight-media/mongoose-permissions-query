@@ -1,0 +1,44 @@
+{
+  "name": "mongoose-permissions",
+  "version": "0.0.1",
+  "description": "Mongoose Permissions",
+  "license": "None",
+  "contributors": [
+    "Jay Peng<jay.peng@inlight.com.au> (http://github.com/jaypeng2015)",
+    "Ivan Wang <ivan.wang@inlight.com.au> (http://github.com/ivawzh)"
+  ],
+  "main": "./scripts/index.js",
+  "scripts": {
+    "test": "NODE_ENV=test node node_modules/nodemon/bin/nodemon.js node_modules/mocha/bin/mocha --compilers js:mocha-traceur lib/**/*-test.js",
+    "clean": "rm -r scripts/*",
+    "release": "npm run clean && node_modules/babel/bin/babel.js lib --out-dir scripts",
+    "eslint": "eslint lib"
+  },
+  "homepage": "https://github.com/inlight-media/mongoose-permissions",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inlight-media/mongoose-permissions.git"
+  },
+  "bugs": {
+    "url": "https://github.com/inlight-media/mongoose-permissions/issues"
+  },
+  "pre-commit": "npm run eslint",
+  "dependencies": {
+    "lodash": "^3.5.0",
+    "mongoose": "~4.0.2"
+  },
+  "devDependencies": {
+    "babel": "^5.6.14",
+    "babel-eslint": "^4.1.3",
+    "babel-runtime": "^5.8.25",
+    "eslint": "^1.5.1",
+    "eslint-config-airbnb": "^0.1.0",
+    "eslint-plugin-react": "^3.5.1",
+    "mocha": "^2.3.0",
+    "mocha-babel": "^3.0.0",
+    "mocha-traceur": "^2.1.0",
+    "nodemon": "^1.7.1",
+    "pre-git": "^0.6.2",
+    "should": "^7.1.0"
+  }
+}
