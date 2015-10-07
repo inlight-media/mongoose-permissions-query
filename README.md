@@ -135,6 +135,14 @@ var auditEntryPermissionOptions =
   }
 ```
 
+```
+var fullPermissionOptions =
+  {
+    filters: {},
+    fields: ['*']
+  }
+```
+
 ***Field name***
 `$field_names` are referring to the attributes of model. `fields: ['field']` means include a field. `fields: ['-field']` means exclude the field.
 However, include and exclude cannot be used at the same time.
