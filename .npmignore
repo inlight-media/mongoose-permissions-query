@@ -15,4 +15,7 @@ node_modules
 
 *.log
 *.gz
+
 .idea/
+*-compiled.js
+*-compiled.js.map
