@@ -1,7 +1,7 @@
 {
-  "name": "mongoose-permissions",
+  "name": "mongoose-permissions-query",
   "version": "0.0.1",
-  "description": "Mongoose Permissions",
+  "description": "Mongoose Permissions Query",
   "license": "None",
   "contributors": [
     "Jay Peng<jay.peng@inlight.com.au> (http://github.com/jaypeng2015)",
@@ -14,13 +14,13 @@
     "release": "npm run clean && node_modules/babel/bin/babel.js lib --out-dir scripts && git add .",
     "eslint": "eslint lib"
   },
-  "homepage": "https://github.com/inlight-media/mongoose-permissions",
+  "homepage": "https://github.com/inlight-media/mongoose-permissions-query",
   "repository": {
     "type": "git",
-    "url": "https://github.com/inlight-media/mongoose-permissions.git"
+    "url": "https://github.com/inlight-media/mongoose-permissions-query.git"
   },
   "bugs": {
-    "url": "https://github.com/inlight-media/mongoose-permissions/issues"
+    "url": "https://github.com/inlight-media/mongoose-permissions-query/issues"
   },
   "pre-commit": "npm run release",
   "post-commit": "npm run eslint",
