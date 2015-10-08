@@ -21,7 +21,7 @@ var _pluginPermissionsQuery2 = _interopRequireDefault(_pluginPermissionsQuery);
 var Schema = _mongoose2['default'].Schema;
 var ObjectId = Schema.Types.ObjectId;
 
-describe('mongoose-permissions-query:unit:query', function () {
+describe('mongoose-permissions-query:unit:queryModify', function () {
   // mock env
   var schema = new Schema({
     name: String,
@@ -420,13 +420,14 @@ describe('mongoose-permissions-query:unit:query', function () {
     Model.permissionsQuery(query, permissionsOptions, function (err) {
       error = err;
     });
-    error.should.exists;
+    error.should.not.eql(null);
     done();
   });
 
-  // query integration test
+  // query integration tests
   it('should filter documents');
   it('should filter dependencies');
-  it('should filter dependencies');
+  it('should filter dependencies and documents');
+  it('should hide fields');
   it('should not show the hidden fields from the original query');
 });
