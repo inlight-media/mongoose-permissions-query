@@ -15,10 +15,6 @@ var _lodash = require('lodash');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
-var _mongooseLibQuery = require('mongoose/lib/query');
-
-var _mongooseLibQuery2 = _interopRequireDefault(_mongooseLibQuery);
-
 function attachStaticMethod(schema) {
   schema.statics.permissionsQuery = permissionsQuery;
 }
