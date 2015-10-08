@@ -10,9 +10,9 @@ var _pluginPermissionsQuery = require('./plugin/permissionsQuery');
 
 var _pluginPermissionsQuery2 = _interopRequireDefault(_pluginPermissionsQuery);
 
-var _testSharedPermissionQueryTest = require('./test/shared/permissionQueryTest');
+var _testSharedPermissionsQueryTest = require('./test/shared/permissionsQuery-test');
 
-var _testSharedPermissionQueryTest2 = _interopRequireDefault(_testSharedPermissionQueryTest);
+var _testSharedPermissionsQueryTest2 = _interopRequireDefault(_testSharedPermissionsQueryTest);
 
 exports.queryPlugin = _pluginPermissionsQuery2['default'];
-exports.sharedTest = _testSharedPermissionQueryTest2['default'];
+exports.sharedTest = _testSharedPermissionsQueryTest2['default'];

@@ -19,7 +19,6 @@ var _pluginPermissionsQuery = require('../../plugin/permissionsQuery');
 var _pluginPermissionsQuery2 = _interopRequireDefault(_pluginPermissionsQuery);
 
 var Schema = _mongoose2['default'].Schema;
-var ObjectId = Schema.Types.ObjectId;
 
 describe('mongoose-permissions-query:unit:plugin', function () {
   var schema = new Schema({
