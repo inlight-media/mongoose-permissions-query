@@ -14,5 +14,5 @@ var _testSharedPermissionQueryTest = require('./test/shared/permissionQueryTest'
 
 var _testSharedPermissionQueryTest2 = _interopRequireDefault(_testSharedPermissionQueryTest);
 
-exports.plugin = _pluginPermissionsQuery2['default'];
+exports.queryPlugin = _pluginPermissionsQuery2['default'];
 exports.sharedTest = _testSharedPermissionQueryTest2['default'];

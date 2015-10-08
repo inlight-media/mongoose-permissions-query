@@ -18,7 +18,7 @@ In schema:
 ```
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var permissionsQuery = require('mongoose-permissions-query').plugin;
+var permissionsQuery = require('mongoose-permissions-query').queryPlugin;
 var testSchema = new Schema({
   application: String,
   name: String,
