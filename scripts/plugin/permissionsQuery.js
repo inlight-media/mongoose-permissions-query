@@ -33,8 +33,12 @@ function permissionsQuery(defaultQuery, permissionOptions, callback) {
     callback(error);
     return;
   }
+
   // for fields
   var fields = permissionOptions.fields.join(' ');
+  if (fields === '*') {
+    fields = '';
+  }
 
   // for filter
   var conditions = undefined;
@@ -87,8 +91,7 @@ function permissionsQuery(defaultQuery, permissionOptions, callback) {
       }
     });
   }
-  return new _mongooseLibQuery2['default']().select(fields) // select() must be before default query. otherwise the hidden fields from default query will be overwritten by permitted fields
-  .merge(defaultQuery).find(conditions);
+  return defaultQuery.select(fields).find(conditions);
 }
 
 function bothIncludeAndExcludeExist(filter) {

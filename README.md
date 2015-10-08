@@ -106,9 +106,9 @@ var auditEntryPermissionOptions =
       }
     },
     fields: [
-      'title',
-      'items.score',
-      'items.group.label'
+      '-title',
+      '-items.score',
+      '-items.group.label'
     ]
   }
 ```
@@ -168,9 +168,7 @@ var fullPermissionOptions =
 ```
 
 ***Field name***
-`$field_names` are referring to the attributes of model. `fields: ['field']` means include a field. `fields: ['-field']` means exclude the field.
-However, include and exclude cannot be used at the same time.
-
+`$field_names` are referring to the attributes of model. `fields: ['-field']` means exclude the field.
 
 ### Shared tests
 To use the share test, simply include:

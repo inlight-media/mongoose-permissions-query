@@ -41,7 +41,7 @@ describe('mongoose-permissions-query:unit:queryModify', function () {
   _sharedPermissionsQueryTest2['default'].permissionsQueryTest({ model: Model });
 
   it('should exclude banned fields', function (done) {
-    var query = Model.findOne();
+    var query = Model.findOne().select('');
     var permissionsOptions = {
       filter: {},
       fields: ['-field1', '-field2', '-field3']
@@ -60,20 +60,17 @@ describe('mongoose-permissions-query:unit:queryModify', function () {
   });
 
   it('should include permitted fields', function (done) {
-    var query = Model.findOne();
+    var query = Model.findOne().select('');
     var permissionsOptions = {
       filter: {},
-      fields: ['field3', 'field5']
+      fields: ['*']
     };
     var error = null;
     var newQuery = Model.permissionsQuery(query, permissionsOptions, function (err) {
       error = err;
     });
     _should2['default'].equal(error, null);
-    newQuery._fields.should.eql({
-      field3: 1,
-      field5: 1
-    });
+    _should2['default'].equal(newQuery._fields, undefined);
     done();
   });
 
@@ -388,7 +385,7 @@ describe('mongoose-permissions-query:unit:queryModify', function () {
     });
     _should2['default'].equal(error, null);
     newQuery._conditions.should.eql({});
-    newQuery._fields.should.eql({ '*': 1 });
+    _should2['default'].equal(newQuery._fields, undefined);
     done();
   });
   // _fields:{'*':1}
@@ -421,6 +418,61 @@ describe('mongoose-permissions-query:unit:queryModify', function () {
       error = err;
     });
     error.should.not.eql(null);
+    done();
+  });
+
+  it('should not show the fields those are hidden by default query', function (done) {
+    var query = Model.findOne().select('-field3 -field4');
+    var permissionsOptions = {
+      filter: {},
+      fields: ['*']
+    };
+    var error = null;
+    var newQuery = Model.permissionsQuery(query, permissionsOptions, function (err) {
+      error = err;
+    });
+    _should2['default'].equal(error, null);
+    newQuery._fields.should.eql({
+      field3: 0,
+      field4: 0
+    });
+    done();
+  });
+
+  it('should not show the fields those the default query didnt ask for', function (done) {
+    var query = Model.findOne().select('field3 field4');
+    var permissionsOptions = {
+      filter: {},
+      fields: ['-field3']
+    };
+    var error = null;
+    var newQuery = Model.permissionsQuery(query, permissionsOptions, function (err) {
+      error = err;
+    });
+    _should2['default'].equal(error, null);
+    newQuery._fields.should.eql({
+      field3: 0,
+      field4: 1
+    });
+    done();
+  });
+
+  it('should not show the banned fields even when default query try to force select it', function (done) {
+    var query = Model.findOne().select('field3 field4');
+    var permissionsOptions = {
+      filter: {},
+      fields: ['-field3', '-field5']
+    };
+    var error = null;
+    var newQuery = Model.permissionsQuery(query, permissionsOptions, function (err) {
+      error = err;
+    });
+    _should2['default'].equal(error, null);
+    newQuery._fields.should.eql({
+      field3: 0,
+      field4: 1,
+      field5: 0
+    });
     done();
   });
 
