@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.js"],"names":[],"mappings":";;;;;;;;sCAAmB,2BAA2B;;;;6CACvB,mCAAmC;;;;QAGxD,MAAM;QACN,UAAU","file":"index-compiled.js","sourcesContent":["import plugin from './plugin/permissionsQuery'\nimport sharedTest from './test/shared/permissionQueryTest'\n\nexport {\n  plugin,\n  sharedTest\n}\n"]}

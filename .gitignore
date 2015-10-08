@@ -36,3 +36,4 @@ Thumbs.db
 
 .idea/
 *-compiled.js
+*-compiled.js.map
