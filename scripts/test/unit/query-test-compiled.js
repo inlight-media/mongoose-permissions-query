@@ -39,16 +39,6 @@ describe('mongoose-permissions-query:unit:query', function () {
   var Model = _mongoose2['default'].model('Model', schema);
   var Association = _mongoose2['default'].model('Association', schema);
   var Population = _mongoose2['default'].model('Population', schema);
-  var doc = new Model({
-    name: 'name',
-    field1: 'field1',
-    field2: 2,
-    field3: new ObjectId(),
-    field4: [4, 4, 4, 4],
-    field5: { 5: 5 },
-    population: new ObjectId(),
-    associations: [new ObjectId(), new ObjectId()]
-  });
 
   _sharedPermissionsQueryTest2['default'].permissionsQueryTest({ model: Model });
 

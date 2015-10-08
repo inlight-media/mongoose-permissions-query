@@ -11,7 +11,7 @@
   "scripts": {
     "test": "NODE_ENV=test node node_modules/nodemon/bin/nodemon.js node_modules/mocha/bin/mocha --compilers js:mocha-traceur lib/**/*-test.js",
     "clean": "rm -r scripts/*",
-    "release": "npm run clean && node_modules/babel/bin/babel.js lib --out-dir scripts",
+    "release": "npm run clean && node_modules/babel/bin/babel.js lib --out-dir scripts && git add .",
     "eslint": "eslint lib"
   },
   "homepage": "https://github.com/inlight-media/mongoose-permissions",
@@ -22,6 +22,7 @@
   "bugs": {
     "url": "https://github.com/inlight-media/mongoose-permissions/issues"
   },
+  "pre-commit": ["npm run release"],
   "post-commit": "npm run eslint",
   "dependencies": {
     "lodash": "^3.5.0",
