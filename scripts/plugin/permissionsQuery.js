@@ -21,7 +21,7 @@ function attachStaticMethod(schema) {
 
 function permissionsQuery(defaultQuery, permissionOptions, callback) {
   var myModule = this.modelName;
-  if (!permissionOptions.fields || !permissionOptions.filter || bothIncludeAndExcludeExist(permissionOptions.filter)) {
+  if (!permissionOptions.fields || !permissionOptions.filter || filterCheck(permissionOptions.filter)) {
     var error = new _errors2['default'].Http500Error({
       message: 'Invalid permission options',
       explanation: 'Input of permission query is not valid.'
@@ -41,7 +41,7 @@ function permissionsQuery(defaultQuery, permissionOptions, callback) {
   if (!_lodash2['default'].isEmpty(permissionOptions.filter)) {
     conditions = { $and: [] };
     _lodash2['default'].each(permissionOptions.filter, function (content, module) {
-      if (module === myModule.toLowerCase()) {
+      if (_lodash2['default'].isArray(content.exclude) && _lodash2['default'].isEmpty(content.exclude)) {} else if (module === myModule.toLowerCase()) {
         // this is its own module
         if (content.include) {
           conditions.$and.push({
@@ -90,10 +90,11 @@ function permissionsQuery(defaultQuery, permissionOptions, callback) {
   return defaultQuery.select(fields).find(conditions);
 }
 
-function bothIncludeAndExcludeExist(filter) {
+function filterCheck(filter) {
   var output = false;
   _lodash2['default'].each(filter, function (content) {
-    if (content.include && content.exclude) {
+    // both Include and Exclude exist || include:[] exists
+    if (content.include && content.exclude || _lodash2['default'].isEmpty(content.include) && _lodash2['default'].isArray(content.include)) {
       output = true;
     }
   });

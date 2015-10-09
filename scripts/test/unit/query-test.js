@@ -177,6 +177,43 @@ describe('mongoose-permissions-query:unit:queryModify', function () {
     done();
   });
 
+  it('should throw error when filter has include:[]', function (done) {
+    var query = Model.find();
+    var permissionsOptions = {
+      filter: {
+        population: {
+          include: []
+        }
+      },
+      fields: ['*']
+    };
+    var error = null;
+    Model.permissionsQuery(query, permissionsOptions, function (err) {
+      error = err;
+    });
+    error.should.exists;
+    done();
+  });
+
+  it('should do nothing when filter is exclude:[]', function (done) {
+    var query = Model.findOne();
+    var permissionsOptions = {
+      filter: {
+        population: {
+          exclude: []
+        }
+      },
+      fields: ['*']
+    };
+    var error = null;
+    var newQuery = Model.permissionsQuery(query, permissionsOptions, function (err) {
+      error = err;
+    });
+    _should2['default'].equal(error, null);
+    newQuery._conditions.should.eql({ $and: [] });
+    done();
+  });
+
   it('should exclude multiple banned dependencies', function (done) {
     var query = Model.findOne();
     var permissionsOptions = {
