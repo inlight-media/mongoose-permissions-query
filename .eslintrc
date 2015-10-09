@@ -1,0 +1,18 @@
+{
+  "extends": ["airbnb"],
+  "rules": {
+    "no-use-before-define": [2, "nofunc"],
+    "id-length": [2, {"min": 2, "properties": "never", "exceptions": ["_", "i", "j"]}],
+    "comma-dangle": 0,
+    "semi": [
+      2,
+      "never"
+    ]
+  },
+  "env": {
+    "es6": true,
+    "mocha": true,
+    "node": true
+  }
+
+}

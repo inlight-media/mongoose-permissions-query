@@ -35,3 +35,5 @@ Thumbs.db
 *.swn
 
 .idea/
+*-compiled.js
+*-compiled.js.map
